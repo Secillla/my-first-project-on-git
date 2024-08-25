@@ -1,10 +1,33 @@
 body {
-  background: rgb(89, 45, 186);
+  background: antiquewhite;
 }
 .weather-app {
   background-color: white;
   max-width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+}
+.search-input {
+  background-color: antiquewhite;
+  border: none;
+  width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.search-button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 80%;
+  font-size: 14px;
 }
 h1 {
   text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+footer {
+  font-family: monospace;
 }
