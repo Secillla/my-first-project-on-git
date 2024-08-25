@@ -8,7 +8,7 @@ body {
   padding: 10px;
 }
 .search-input {
-  background-color: rgb(246, 237, 227);
+  background-color: rgb(247, 242, 236);
   border: none;
   width: 80%;
   padding: 5px;
@@ -20,7 +20,7 @@ body {
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
-  width: 10%;
+  width: 15%;
   font-size: 14px;
   background-color: blueviolet;
   color: white;
@@ -44,7 +44,7 @@ h1 {
 }
 .current-temperature-icon {
   font-size: 40px;
-  margin-bottom: 16px;
+  margin-top: 10px;
 }
 .current-temperature-value {
   font-size: 88px;
@@ -53,7 +53,7 @@ h1 {
 }
 .current-temperature-unit {
   font-size: 24px;
-  margin-bottom: 16px;
+  margin-top: 16px;
 }
 main {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
