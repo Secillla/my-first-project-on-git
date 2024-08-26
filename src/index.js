@@ -1,8 +1,8 @@
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = Math.round(response.data.temperature.current);
   temperatureElement.innerHTML = temperature;
   let humidityElement = document.querySelector("#humidity-data");
   let humidity = Math.round(response.data.temperature.humidity);
@@ -11,7 +11,7 @@ function displayTemperature(response) {
   let wind = response.data.wind.speed;
   windElement.innerHTML = wind;
   let descElement = document.querySelector("#weather-desc");
-  let weatherDesc = response.data.temperature.description;
+  let weatherDesc = response.data.condition.description;
   descElement.innerHTML = weatherDesc;
 }
 
