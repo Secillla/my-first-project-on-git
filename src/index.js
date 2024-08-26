@@ -15,8 +15,6 @@ function displayTemperature(response) {
   descElement.innerHTML = weatherDesc;
   let dateElement = document.querySelector("#current-date");
   let dateInfo = response.data.time;
-let currentDate = dateInfo;
-dateELement.innerHTML = formatDate(currentDate);
 }
 
 function search(event) {
@@ -57,6 +55,7 @@ function formatDate(date) {
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
 }
+dateELement.innerHTML = formatDate(dateInfo);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
