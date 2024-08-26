@@ -4,23 +4,17 @@ function displayTemperature(response) {
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = temperature;
-}
-function displayHumidity(response) {
   let humidityElement = document.querySelector("#humidity-data");
   let humidity = Math.round(response.data.temperature.humidity);
   humidityElement.innerHTML = humidity;
-}
-function displayWind(response) {
   let windElement = document.querySelector("#wind-data");
   let wind = response.data.wind.speed;
   windElement.innerHTML = wind;
-}
-
-function displayWeatherDesc(response) {
   let descElement = document.querySelector("#weather-desc");
   let weatherDesc = response.data.temperature.description;
   descElement.innerHTML = weatherDesc;
 }
+
 function search(event) {
   event.preventDefault();
   let searchInputElement = document.querySelector("#search-input");
