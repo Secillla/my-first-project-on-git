@@ -2,9 +2,9 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.temperature.current);
   temperatureElement.innerHTML = temperature;
-  //let humidityElement = document.querySelector("#humidity-data");
-  //let humidity = `${Math.round(response.data.temperature.humidity)} %`;
-  //humidityElement.innerHTML = humidity;
+  let humidityElement = document.querySelector("#humidity-data");
+  let humidity = `${Math.round(response.data.temperature.humidity)} %`;
+  humidityElement.innerHTML = humidity;
   //let windElement = document.querySelector("#wind-data");
   //let wind = response.data.wind.speed;
   //windElement.innerHTML = wind;
