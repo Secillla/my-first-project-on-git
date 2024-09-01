@@ -11,7 +11,9 @@ function displayTemperature(response) {
   let descElement = document.querySelector("#weather-desc");
   let weatherDesc = response.data.condition.description;
   descElement.innerHTML = weatherDesc;
-  //let dateInfo = response.data.time;
+  let dateElement = document.querySelector("#current-date");
+  let dateInfo = response.data.time;
+  dateElement.innerHTML = dateInfo;
 }
 function search(event) {
   event.preventDefault();
