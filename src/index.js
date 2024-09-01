@@ -13,8 +13,8 @@ function displayTemperature(response) {
   descElement.innerHTML = weatherDesc;
   let dateElement = document.querySelector("#current-date");
   let dateInfo = response.data.time;
-  return new Date(dateInfo*1000);
-  dateElement.innerHTML = dateInfo;
+  let updatedDate = new Date(dateInfo*1000);
+  dateElement.innerHTML = updatedDate;
   let iconElement = document.querySelector("#temp-icon");
 let iconSource = response.data.condition.icon_url;
 let tempIcon = document.getElementById("temp-icon");
