@@ -1,7 +1,7 @@
-//function displayTemperature(response) {
-  //let temperatureElement = document.querySelector("#current-temperature");
-  //let temperature = Math.round(response.data.temperature.current);
-  //temperatureElement.innerHTML = temperature;
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = Math.round(response.data.temperature.current);
+  temperatureElement.innerHTML = temperature;
   //let humidityElement = document.querySelector("#humidity-data");
   //let humidity = `${Math.round(response.data.temperature.humidity)} %`;
   //humidityElement.innerHTML = humidity;
@@ -12,16 +12,16 @@
   //let weatherDesc = response.data.condition.description;
   //descElement.innerHTML = weatherDesc;
   //let dateInfo = response.data.time;
-//}
+}
 function search(event) {
   event.preventDefault();
   let searchInputElement = document.querySelector("#search-input");
   let city = searchInputElement.value;
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = city;
-  //let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
-  //let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  //axios.get(apiUrl).then(displayTemperature);
+  let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
 }
 //function formatDate(date) {
   //let minutes = date.getMinutes();
