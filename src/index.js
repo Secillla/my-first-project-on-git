@@ -14,6 +14,10 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#current-date");
   let dateInfo = response.data.time;
   dateElement.innerHTML = dateInfo;
+  let iconElement = document.querySelector("#temp-icon");
+let iconSource = response.data.condition.icon_url;
+let tempIcon = document.getElementById("temp-icon");
+tempIcon.setAttribute("src", "iconSource");
 }
 function search(event) {
   event.preventDefault();
