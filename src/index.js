@@ -9,9 +9,9 @@ function displayTemperature(response) {
   let wind = response.data.wind.speed;
   windElement.innerHTML = wind;
   let descElement = document.querySelector("#weather-desc");
-  let weatherDesc = response.data.condition.description;
-  descElement.innerHTML = weatherDesc;
-  let dateInfo = response.data.time;
+  //let weatherDesc = response.data.condition.description;
+  //descElement.innerHTML = weatherDesc;
+  //let dateInfo = response.data.time;
 }
 function search(event) {
   event.preventDefault();
@@ -23,7 +23,6 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
-
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -51,7 +50,7 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
-let dateElement = document.querySelector("#current-date");
+let dateElement = new Date();
 dateELement.innerHTML = formatDate(dateInfo);
 
 let searchForm = document.querySelector("#search-form");
