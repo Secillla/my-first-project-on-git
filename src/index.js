@@ -5,12 +5,12 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity-data");
   let humidity = `${Math.round(response.data.temperature.humidity)} %`;
   humidityElement.innerHTML = humidity;
-  //let windElement = document.querySelector("#wind-data");
-  //let wind = response.data.wind.speed;
-  //windElement.innerHTML = wind;
-  //let descElement = document.querySelector("#weather-desc");
-  //let weatherDesc = response.data.condition.description;
-  //descElement.innerHTML = weatherDesc;
+  let windElement = document.querySelector("#wind-data");
+  let wind = `${Math.round(response.data.wind.speed)} km/h`;
+  windElement.innerHTML = wind;
+  let descElement = document.querySelector("#weather-desc");
+  let weatherDesc = response.data.condition.description;
+  descElement.innerHTML = weatherDesc;
   //let dateInfo = response.data.time;
 }
 function search(event) {
