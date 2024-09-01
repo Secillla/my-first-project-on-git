@@ -14,7 +14,29 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#current-date");
   let dateInfo = response.data.time;
   let updatedDate = new Date(dateInfo*1000);
-  dateElement.innerHTML = updatedDate;
+  function formatDate(date) {
+    let minutes = updatedDate.getMinutes();
+    let hours = updatedDate.getHours();
+    let day = updatedDate.getDay();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    if (hours < 10) {
+      hours = `0${hours}`;
+  }
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+  ];
+    let formattedDay = days[day];
+    return `${formattedDay} ${hours}:${minutes}`;
+  }
+  dateElement.innerHTML = formattedDay;
   let iconElement = document.querySelector("#temp-icon");
 let iconSource = response.data.condition.icon_url;
 let tempIcon = document.getElementById("temp-icon");
@@ -30,32 +52,6 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
-//function formatDate(date) {
-  //let minutes = date.getMinutes();
-  //let hours = date.getHours();
-  //let day = date.getDay();
-  //if (minutes < 10) {
-    //minutes = `0${minutes}`;
-  //}
-  //if (hours < 10) {
-    //hours = `0${hours}`;
-  //}
-  //let days = [
-    //"Sunday",
-    //"Monday",
-    //"Tuesday",
-    //"Wednesday",
-    //"Thursday",
-    //"Friday",
-    //"Saturday",
-//];
-  //let formattedDay = days[day];
-  //return `${formattedDay} ${hours}:${minutes}`;
-//}
-
-//let dateElement = new Date();
-//dateELement.innerHTML = formatDate(dateInfo);
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
