@@ -3,7 +3,7 @@ function displayTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
   temperatureElement.innerHTML = temperature;
   let humidityElement = document.querySelector("#humidity-data");
-  let humidity = `${Math.round(response.data.temperature.humidity)} %`;
+  let humidity = `${Math.round(response.data.temperature.humidity)}%`;
   humidityElement.innerHTML = humidity;
   let windElement = document.querySelector("#wind-data");
   let wind = `${Math.round(response.data.wind.speed)} km/h`;
