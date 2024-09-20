@@ -1,8 +1,29 @@
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = Math.round(response.data.temperature.current);
+  temperatureElement.innerHTML = temperature;
+  let humidityElement = document.querySelector("#humidity-data");
+  let humidity = `${Math.round(response.data.temperature.humidity)} %`;
+  humidityElement.innerHTML = humidity;
+  let windElement = document.querySelector("#wind-data");
+  let wind = `${Math.round(response.data.wind.speed)} km/h`;
+  windElement.innerHTML = wind;
+  let descElement = document.querySelector("#weather-desc");
+  let weatherDesc = response.data.condition.description;
+  descElement.innerHTML = weatherDesc;
+  let date = new Date(response.data.time * 1000);
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML = formatDate(date);
+  let iconElement = document.querySelector("#temp-icon");
+  let iconSource = response.data.condition.icon_url;
+  let tempIcon = document.getElementById("temp-icon");
+  tempIcon.setAttribute("src", "iconSource");
+  getForecast(response.data.city);
+}
 function formatDate(date) {
-  let newDateInfo = document.querySelector("#current-date");
-  let minutes = newDateInfo.getMinutes();
-  let hours = newDateInfo.getHours();
-  let day = newDateInfo.getDay();
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -18,31 +39,8 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let formattedDay = days[day];
-  let formattedDate = `${formattedDay} ${hours}:${minutes}`;
-  newDateInfo.innerHTML = formattedDate;
-}
-function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
-  temperatureElement.innerHTML = temperature;
-  let humidityElement = document.querySelector("#humidity-data");
-  let humidity = `${Math.round(response.data.temperature.humidity)} %`;
-  humidityElement.innerHTML = humidity;
-  let windElement = document.querySelector("#wind-data");
-  let wind = `${Math.round(response.data.wind.speed)} km/h`;
-  windElement.innerHTML = wind;
-  let descElement = document.querySelector("#weather-desc");
-  let weatherDesc = response.data.condition.description;
-  descElement.innerHTML = weatherDesc;
-  let dateElement = document.querySelector("#current-date");
-  let dateInfo = response.data.time;
-  dateElement.innerHTML = dateInfo;
-  let iconElement = document.querySelector("#temp-icon");
-  let iconSource = response.data.condition.icon_url;
-  let tempIcon = document.getElementById("temp-icon");
-  tempIcon.setAttribute("src", "iconSource");
-  getForecast(response.data.city);
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
 function search(event) {
   event.preventDefault();
