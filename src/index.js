@@ -8,7 +8,7 @@ function formatDate(date) {
   }
   if (hours < 10) {
     hours = `0${hours}`;
-}
+  }
   let days = [
     "Sunday",
     "Monday",
@@ -17,9 +17,9 @@ function formatDate(date) {
     "Thursday",
     "Friday",
     "Saturday",
-];
+  ];
   let formattedDay = days[day];
-   let formattedDate = `${formattedDay} ${hours}:${minutes}`;
+  let formattedDate = `${formattedDay} ${hours}:${minutes}`;
   newDateInfo.innerHTML = formattedDate;
 }
 function displayTemperature(response) {
@@ -39,9 +39,9 @@ function displayTemperature(response) {
   let dateInfo = response.data.time;
   dateElement.innerHTML = dateInfo;
   let iconElement = document.querySelector("#temp-icon");
-let iconSource = response.data.condition.icon_url;
-let tempIcon = document.getElementById("temp-icon");
-tempIcon.setAttribute("src", "iconSource");
+  let iconSource = response.data.condition.icon_url;
+  let tempIcon = document.getElementById("temp-icon");
+  tempIcon.setAttribute("src", "iconSource");
 }
 function search(event) {
   event.preventDefault();
@@ -55,7 +55,30 @@ function search(event) {
   axios.get(apiUrl).then(formatDate);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+<div class="weather-forecast-day">
+  <div class="day-name">Sat</div>
+  <div class="day-icon">☀</div>
+  <div class="day-temp">
+    <div class="day-temp-high">
+      <strong>16°</strong>
+    </div>
+    <div class="day-temp-low">9°</div>
+  </div>
+</div>
+`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
-
+displayForecast();
