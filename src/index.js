@@ -11,6 +11,8 @@ function search(event) {
   //axios.get(apiUrl).then(formatDate);
 }
 function displayTemperature(response) {
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.city;
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.temperature.current);
   temperatureElement.innerHTML = temperature;
