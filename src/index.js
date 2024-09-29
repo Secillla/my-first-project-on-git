@@ -8,7 +8,7 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
   axios.get(apiUrl).then(formatDate);
-  return getForecast(city);
+  getForecast(city);
 }
 
 function displayTemperature(response) {
