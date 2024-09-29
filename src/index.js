@@ -1,3 +1,8 @@
+function getSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
+  search(searchInput.value);
+}
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.temperature.current);
@@ -19,6 +24,7 @@ function displayTemperature(response) {
   let tempIcon = document.getElementById("temp-icon");
   tempIcon.setAttribute("src", "iconSource");
   iconElement.innerHTML = tempIcon;
+  search(response.data.city);
   getForecast(response.data.city);
 }
 function formatDate(date) {
@@ -49,11 +55,7 @@ function search(event) {
   axios.get(apiUrl).then(displayTemperature);
   //axios.get(apiUrl).then(formatDate);
 }
-function getSearchSubmit(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-form-input");
-  search(searchInput.value);
-}
+
 function formatDay(unformattedTime) {
   let date = new Date(unformattedDate * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
