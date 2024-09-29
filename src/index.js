@@ -21,6 +21,7 @@ function displayTemperature(response) {
   let tempIcon = document.getElementById("temp-icon");
   tempIcon.setAttribute("src", "iconSource");
   iconElement.innerHTML = tempIcon;
+  getForecast(response.data.city);
 }
 function search(event) {
   let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
@@ -91,9 +92,7 @@ function getSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
   search(searchInput.value);
-  getForecast(searchInput.value);
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSearchSubmit);
-searchForm.addEventListener("submit", getForecast);
 //search("Paris");
