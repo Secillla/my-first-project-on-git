@@ -8,9 +8,8 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
   axios.get(apiUrl).then(formatDate);
-  let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
-  let city = document.querySelector("#current-city");
-  let apiURLtwo = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  let apiKeyTwo = "a86o1049tacf8330d5330da1fb0a51fa";
+  let apiURLtwo = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyTwo}&units=metric`;
   axios.get(apiURLtwo).then(displayForecast);
 }
 
