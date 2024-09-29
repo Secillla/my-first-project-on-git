@@ -70,7 +70,6 @@ function formatDay(unformattedTime) {
 //axios.get(apiURLtwo).then(displayForecast);
 //}
 function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
   response.data.daily.forEach(function (day, index) {
     if (index < 5) {
@@ -79,17 +78,17 @@ function displayForecast(response) {
         `
 <div class="weather-forecast-day">
   <div class="day-name">${formatDay(day.time)}</div>
-  <div ><img src="${day.condition.icon_url}" class="day-icon" /></div>
-  <div class="day-temp">
-    <div class="day-temp-high">
-      <strong>${Math.round(day.temperature.maximum)}</strong>
-    </div>
+  <div><img src="${day.condition.icon_url}" class="day-icon"/></div>
+  <div class="day-temp"> <div class="day-temp-high"><strong>${Math.round(
+    day.temperature.maximum
+  )}</strong></div>
     <div class="day-temp-low">" " + ${Math.round(day.temperature.minimum)}</div>
   </div>
 </div>
 `;
     }
   });
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
 }
 
