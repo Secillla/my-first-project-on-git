@@ -25,7 +25,7 @@ function displayTemperature(response) {
   let descElement = document.querySelector("#weather-desc");
   let weatherDesc = response.data.condition.description;
   descElement.innerHTML = weatherDesc;
-  let date = new Date(response.data.time * 1000);
+  let date = Date(response.data.time * 1000);
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML = formatDate(date);
   let iconElement = document.querySelector("#temp-icon");
