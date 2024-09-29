@@ -32,6 +32,7 @@ function displayTemperature(response) {
   let iconSource = response.data.condition.icon_url;
   let tempIcon = document.getElementById("temp-icon");
   tempIcon.setAttribute("src", "iconSource");
+  iconElement.innerHTML = tempIcon;
   getForecast(response.data.city);
 }
 function formatDate(date) {
