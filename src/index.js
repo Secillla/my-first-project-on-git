@@ -26,6 +26,7 @@ function displayTemperature(response) {
 }
 function search(event) {
   let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
+  let city = document.querySelector("#city");
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
   //axios.get(apiUrl).then(formatDate);
@@ -64,6 +65,7 @@ function formatDay(unformattedTime) {
 }
 function getForecast(city) {
   let apiKeytwo = "a86o1049tacf8330d5330da1fb0a51fa";
+  let city = document.querySelector("#city");
   let apiURLtwo = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeytwo}&units=metric`;
   axios.get(apiURLtwo).then(displayForecast);
 }
