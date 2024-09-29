@@ -29,12 +29,7 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
-function getSearchSubmit(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  search(searchInput.value);
-  getForecast(response.data.city);
-}
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -91,7 +86,12 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
 }
-
+function getSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-input");
+  search(searchInput.value);
+  getForecast(searchInput.value);
+}
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSearchSubmit);
 search("Paris");
