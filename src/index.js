@@ -58,7 +58,13 @@ function formatDay(unformattedTime) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[date.getDay()];
 }
-
+function getForecast(city) {
+  let apiKeytwo = "a86o1049tacf8330d5330da1fb0a51fa";
+  let searchInput = document.querySelector("#search-input");
+  city = searchInput.value;
+  let apiURLtwo = `https://api.shecodes.io/weather/v1/forecast?query=Tokyo&key=a86o1049tacf8330d5330da1fb0a51fa&units=metric`;
+  axios.get(apiURLtwo).then(displayForecast);
+}
 function displayForecast(response) {
   let forecastHTML = "";
   response.data.daily.forEach(function (day, index) {
@@ -81,13 +87,7 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
 }
-function getForecast(city) {
-  let apiKeytwo = "a86o1049tacf8330d5330da1fb0a51fa";
-  let searchInput = document.querySelector("#search-input");
-  city = searchInput.value;
-  let apiURLtwo = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeytwo}&units=metric`;
-  axios.get(apiURLtwo).then(displayForecast);
-}
+
 function getSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
