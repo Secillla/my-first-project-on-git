@@ -95,4 +95,5 @@ function getSearchSubmit(event) {
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSearchSubmit);
+searchForm.addEventListener("submit", getForecast);
 //search("Paris");
