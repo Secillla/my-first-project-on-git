@@ -2,6 +2,13 @@ function getSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
   search(searchInput.value);
+  getForecast(searchInput.value);
+}
+function search(event) {
+  let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+  //axios.get(apiUrl).then(formatDate);
 }
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
@@ -24,8 +31,8 @@ function displayTemperature(response) {
   let tempIcon = document.getElementById("temp-icon");
   tempIcon.setAttribute("src", "iconSource");
   iconElement.innerHTML = tempIcon;
-  search(response.data.city);
-  getForecast(response.data.city);
+  //search(response.data.city);
+  //getForecast(response.data.city);
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -49,13 +56,6 @@ function formatDate(date) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function search(event) {
-  let apiKey = "a86o1049tacf8330d5330da1fb0a51fa";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
-  //axios.get(apiUrl).then(formatDate);
-}
-
 function formatDay(unformattedTime) {
   let date = new Date(unformattedDate * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -91,4 +91,4 @@ function displayForecast(response) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSearchSubmit);
-search("Paris");
+//displayTemperature("Paris");
