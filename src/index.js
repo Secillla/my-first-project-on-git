@@ -25,7 +25,7 @@ function displayTemperature(response) {
   let descElement = document.querySelector("#weather-desc");
   let weatherDesc = response.data.condition.description;
   descElement.innerHTML = weatherDesc;
-  let date = Date(response.data.time * 1000);
+  let date = new Date(response.data.time * 1000);
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML = formatDate(date);
   let iconElement = document.querySelector("#temp-icon");
@@ -33,7 +33,6 @@ function displayTemperature(response) {
   let tempIcon = document.getElementById("temp-icon");
   tempIcon.setAttribute("src", "iconSource");
   iconElement.innerHTML = tempIcon;
-  getForecast(response.data.city);
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
