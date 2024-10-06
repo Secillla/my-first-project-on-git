@@ -17,10 +17,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML = formatDate(date);
   let iconElement = document.querySelector("#temp-icon");
-  let iconSource = response.data.condition.icon_url;
-  let tempIcon = document.getElementById("temp-icon");
-  tempIcon.setAttribute("src", "iconSource");
-  iconElement.innerHTML = tempIcon;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-icon" />`;
   getForecast(response.data.city);
 }
 function search(event) {
